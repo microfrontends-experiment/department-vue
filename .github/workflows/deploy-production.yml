@@ -31,12 +31,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy /dist to S3
-        run: aws s3 sync ./dist/ s3://${{ secrets.AWS_BUCKET_NAME_DEV }}/vue-app --delete
+        run: aws s3 sync ./dist/ s3://${{ secrets.AWS_BUCKET_NAME }}/vue-app --delete
 
       - name: Invalidate Cloudfront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_DEV }}
+          DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
           PATHS: "/vue-app/*"
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
