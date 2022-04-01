@@ -12,7 +12,7 @@
     <div v-if="showNoEmployeesBox">No employees in this department</div>
     <div
       style="
-        position: absolute;
+        position: fixed;
         left: 32px;
         bottom: 32px;
         display: flex;
@@ -102,16 +102,16 @@ export default {
 
 <style scoped>
 .Department {
-  padding: 32px 64px;
+  padding: 16px;
 }
 .Department_name {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 16px;
 }
 .Card {
   border: 1px solid #000;
-  padding: 32px;
-  margin: 16px;
+  padding: 16px;
+  margin: 16px 0;
   color: #000;
   transition: 0.5s;
   cursor: pointer;
@@ -139,5 +139,18 @@ export default {
   color: "#000";
   font-size: "18px";
   padding-right: "10px";
+}
+
+@media screen and (min-width: 768px) {
+  .Department {
+    padding: 32px 64px;
+  }
+  .Department_name {
+    font-size: 24px;
+  }
+
+  .Card {
+    padding: 32px;
+  }
 }
 </style>
